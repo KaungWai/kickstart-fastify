@@ -1,0 +1,10 @@
+version: '3'
+services:
+  postgresql:
+    container_name: kickstart_fastify_postgresql
+    restart: always
+    build:
+      context: ./
+      dockerfile: ./docker/postgresql/Dockerfile
+    ports:
+      - "5432:5432"

@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -24,7 +24,7 @@ model Product {
   productId          String   @id @db.VarChar(12)
   productName        String   @db.VarChar(100)
   productDescription String   @db.VarChar(500)
-  productPrice       Int      @db.Int
+  productPrice       Int      @db.Integer
   createdAt          DateTime @default(now()) @db.Timestamp()
   updatedAt          DateTime @default(now()) @db.Timestamp()
 }
