@@ -1,4 +1,5 @@
 import { FastifySchema } from 'fastify'
+
 import { getProductByIdParams } from './parameter'
 import { getProductByIdResponse } from './response'
 

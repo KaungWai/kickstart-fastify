@@ -1,5 +1,6 @@
 import { RouteHandlerMethod } from 'fastify'
 import { StatusCodes } from 'http-status-codes'
+
 import { GetProductsQuery } from './query'
 import { GetProductsResponse, GetProductsResult } from './response'
 

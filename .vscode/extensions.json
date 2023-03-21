@@ -2,6 +2,7 @@
     "recommendations": [
         "prisma.prisma",
         "ms-azuretools.vscode-docker",
-        "vscode-icons-team.vscode-icons"
+        "vscode-icons-team.vscode-icons",
+        "dbaeumer.vscode-eslint"
     ]
 }

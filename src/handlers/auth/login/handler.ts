@@ -1,10 +1,11 @@
+import { HttpError } from '@fastify/sensible/lib/httpError'
+import { compareSync } from 'bcrypt'
 import { RouteHandlerMethod } from 'fastify'
 import { StatusCodes } from 'http-status-codes'
+
+import { JWTPayload } from './model/JWTPayload'
 import { LoginRequest } from './request'
 import { LoginResponse, LoginResult } from './response'
-import { compareSync } from 'bcrypt'
-import { HttpError } from '@fastify/sensible/lib/httpError'
-import { JWTPayload } from './model/JWTPayload'
 
 export const loginHandler: RouteHandlerMethod = async function (request, reply): Promise<LoginResponse | HttpError> {
     const body = request.body as LoginRequest

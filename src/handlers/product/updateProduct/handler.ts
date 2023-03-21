@@ -1,6 +1,7 @@
 import { HttpError } from '@fastify/sensible/lib/httpError'
 import { RouteHandlerMethod } from 'fastify'
 import { StatusCodes } from 'http-status-codes'
+
 import { UpdateProductRequest } from './request'
 import { UpdateProductResponse, UpdateProductResult } from './response'
 

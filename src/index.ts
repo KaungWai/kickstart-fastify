@@ -1,10 +1,11 @@
 // resolve module alias
 import 'module-alias/register'
 
+import fastifyAutoload from '@fastify/autoload'
+import fastify, { FastifyListenOptions } from 'fastify'
 // imports
 import path from 'path'
-import fastify, { FastifyListenOptions } from 'fastify'
-import fastifyAutoload from '@fastify/autoload'
+
 import env from '@/utils/env'
 import { getAppVersion } from '@/utils/misc'
 

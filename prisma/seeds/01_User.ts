@@ -1,6 +1,7 @@
 import { faker } from '@faker-js/faker'
-import { genSaltSync, hashSync } from 'bcrypt'
 import { Permission, Prisma, PrismaClient } from '@prisma/client'
+import { genSaltSync, hashSync } from 'bcrypt'
+
 import { SYS_CONSTANTS } from '../../src/constants/systemConstants'
 
 export const seedUser = async (prisma: PrismaClient) => {

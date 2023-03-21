@@ -1,4 +1,5 @@
 import { FastifySchema } from 'fastify'
+
 import { getProductsQuery } from './query'
 import { getProductsResponse } from './response'
 

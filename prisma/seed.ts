@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client'
+
 import { seedUser } from './seeds/01_User'
 import { seedProduct } from './seeds/02_Product'
 

@@ -1,4 +1,5 @@
 import { FastifySchema } from 'fastify'
+
 import { logoutResponse } from './response'
 
 const description = `

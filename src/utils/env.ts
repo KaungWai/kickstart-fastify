@@ -1,7 +1,7 @@
+import { Static, Type } from '@sinclair/typebox'
 import { config } from 'dotenv'
 import { expand } from 'dotenv-expand'
 import envSchema from 'env-schema'
-import { Static, Type } from '@sinclair/typebox'
 
 expand(config())
 

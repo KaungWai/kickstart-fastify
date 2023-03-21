@@ -1,8 +1,9 @@
 import { HttpError } from '@fastify/sensible/lib/httpError'
 import { RouteHandlerMethod } from 'fastify'
 import { StatusCodes } from 'http-status-codes'
+
 import { GetProductByIdParams } from './parameter'
-import { GetProductByIdResult, GetProductByIdResponse } from './response'
+import { GetProductByIdResponse,GetProductByIdResult } from './response'
 
 export const getProductByIdHandler: RouteHandlerMethod = async function (request, reply): Promise<GetProductByIdResponse | HttpError> {
     const params = request.params as GetProductByIdParams

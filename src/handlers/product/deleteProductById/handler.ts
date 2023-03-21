@@ -1,8 +1,9 @@
 import { HttpError } from '@fastify/sensible/lib/httpError'
 import { RouteHandlerMethod } from 'fastify'
 import { StatusCodes } from 'http-status-codes'
+
 import { DeleteProductByIdParams } from './parameter'
-import { DeleteProductByIdResult, DeleteProductByIdResponse } from './response'
+import { DeleteProductByIdResponse,DeleteProductByIdResult } from './response'
 
 export const deleteProductByIdHandler: RouteHandlerMethod = async function (request, reply): Promise<DeleteProductByIdResponse | HttpError> {
     const params = request.params as DeleteProductByIdParams

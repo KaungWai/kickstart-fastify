@@ -1,4 +1,5 @@
 import { FastifySchema } from 'fastify'
+
 import { updateProductRequest } from './request'
 import { updateProductResponse } from './response'
 

@@ -1,4 +1,5 @@
 import { FastifySchema } from 'fastify'
+
 import { createProductRequest } from './request'
 import { createProductResponse } from './response'
 

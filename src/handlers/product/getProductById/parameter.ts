@@ -1,5 +1,6 @@
-import { field } from '@/schemas/fields'
 import { Static, Type } from '@sinclair/typebox'
+
+import { field } from '@/schemas/fields'
 
 export const getProductByIdParams = Type.Object({
     productId: field.productId,

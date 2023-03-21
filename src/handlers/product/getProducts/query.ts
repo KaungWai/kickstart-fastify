@@ -1,5 +1,6 @@
-import { field } from '@/schemas/fields'
 import { Static, Type } from '@sinclair/typebox'
+
+import { field } from '@/schemas/fields'
 
 export const getProductsQuery = Type.Object({
     productId: Type.Optional(field.productId),

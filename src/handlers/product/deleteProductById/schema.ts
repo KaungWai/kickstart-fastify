@@ -1,4 +1,5 @@
 import { FastifySchema } from 'fastify'
+
 import { deleteProductByIdParams } from './parameter'
 import { deleteProductByIdResponse } from './response'
 

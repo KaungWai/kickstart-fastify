@@ -1,6 +1,6 @@
-import { nanoid } from 'nanoid'
 import { faker } from '@faker-js/faker'
 import { Prisma, PrismaClient } from '@prisma/client'
+import { nanoid } from 'nanoid'
 
 export const seedProduct = async (prisma: PrismaClient) => {
     const dataList: Prisma.ProductCreateInput[] = []

@@ -10,6 +10,7 @@
         "dev": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./dist/src/index.js\"",
         "build": "tsc",
         "start": "node ./dist/src/index.js",
+        "lint": "eslint --fix ./",
         "migrate": "prisma migrate dev",
         "seed": "prisma db seed"
     },
@@ -41,6 +42,7 @@
         "dotenv": "^16.0.3",
         "dotenv-expand": "^9.0.0",
         "env-schema": "^5.1.0",
+        "eslint-plugin-simple-import-sort": "^10.0.0",
         "fastify": "^4.10.2",
         "fastify-plugin": "^4.4.0",
         "http-status-codes": "^2.2.0",

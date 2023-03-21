@@ -1,4 +1,5 @@
 import { FastifySchema } from 'fastify'
+
 import { loginRequest } from './request'
 import { loginResponse } from './response'
 

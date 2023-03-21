@@ -1,4 +1,5 @@
 import { Static, Type } from '@sinclair/typebox'
+
 import { DefaultResponse } from '@/handlers/base/defaultResponse'
 import { field } from '@/schemas/fields'
 
