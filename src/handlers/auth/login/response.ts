@@ -1,7 +1,7 @@
 import { Static, Type } from '@sinclair/typebox'
 import { DefaultResponse } from '@/handlers/base/defaultResponse'
 
-export const loginResult = Type.Null()
+const loginResult = Type.Null()
 
 export const loginResponse: DefaultResponse<typeof loginResult> = {
     result: loginResult,

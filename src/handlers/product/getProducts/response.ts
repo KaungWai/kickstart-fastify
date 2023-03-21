@@ -2,7 +2,7 @@ import { field } from '@/schemas/fields'
 import { Static, Type } from '@sinclair/typebox'
 import { DefaultResponse } from '@/handlers/base/defaultResponse'
 
-export const getProductsResult = Type.Array(
+const getProductsResult = Type.Array(
     Type.Object({
         productId: field.productId,
         productName: field.productName,

@@ -1,7 +1,7 @@
 import { Static, Type } from '@sinclair/typebox'
 import { DefaultResponse } from '@/handlers/base/defaultResponse'
 
-export const deleteProductByIdResult = Type.Unsafe()
+const deleteProductByIdResult = Type.Unsafe()
 export const deleteProductByIdResponse: DefaultResponse<typeof deleteProductByIdResult> = {
     result: deleteProductByIdResult,
 }
