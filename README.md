@@ -57,7 +57,7 @@ DATABASE_URL="postgresql://kf_user:kf_password@localhost:5432/kickstart_fastify"
 model User {
   userId     String     @id @db.VarChar(12)
   userName   String     @db.VarChar(100)
-  salt       String     @db.VarChar(24)
+  salt       String     @db.VarChar(29)
   hash       String     @db.VarChar(60)
   permission Permission
   createdAt  DateTime   @default(now()) @db.Timestamp()
@@ -68,9 +68,14 @@ model Product {
   productId          String   @id @db.VarChar(12)
   productName        String   @db.VarChar(100)
   productDescription String   @db.VarChar(500)
-  productPrice       Int      @db.Int
+  productPrice       Int      @db.Integer
   createdAt          DateTime @default(now()) @db.Timestamp()
   updatedAt          DateTime @default(now()) @db.Timestamp()
+}
+
+enum Permission {
+  READ_ONLY
+  READ_WRITE
 }
 ```
 ဒါက definition အနေနဲ့ပဲ ရှိနေသေးတာမို့လို့ database မှာ သွားပြီး table တွေ မဖန်တီးရသေးပါဘူး။ တကယ်ဖန်တီးဖို့အတွက် ‌အောက်က command ကို run ပေးဖို့လိုပါတယ်
