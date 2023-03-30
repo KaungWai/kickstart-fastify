@@ -53,7 +53,7 @@ export default fs(async function (server: FastifyInstance) {
         handler: updateProductHandler,
     })
 
-    // deleate a product by id
+    // delete a product by id
     server.route({
         method: 'DELETE',
         url: `${rootRoute}/${productId}`,
