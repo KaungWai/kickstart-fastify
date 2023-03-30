@@ -111,3 +111,18 @@ swagger ပေါ်မှာပဲ login လုပ်ပြီး product api �
 `.vscode/launch.json`ထဲမှာတော့ debug အတွက် setting ကို define လုပ်ထားပါတယ်။ vscode menu bar ရဲ့ Run ထဲက Start Debugging ကို နှိပ်ပြီး debug mode နဲ့ run လို့ရပါတယ်။
 <br>
 `.vscode/setting.json`ကတော့ လက်ရှိ workspace ရဲ့ setting ဖြစ်ပါတယ်။ ကိုယ်တိုင်ပဲလေ့လာကြည့်ပါ။ 
+### 2. docker
+postgresql အတွက် Dockerfile ကိုရေးပေးထားပါတယ်။ project root folder ထဲက docker-compose.yml file နဲ့ အတူတွဲပြီးကြည့်ပါ။
+### 3. prisma
+prisma.schema (database definition), migration history နဲ့ seeding data တွေရှိတဲ့ folder ပါ။
+### 4. scripts
+လောလောဆယ်တော့ jwt အတွက် private key & public key ကို generate လုပ်တဲ့ script တစ်ခုပဲရှိပါတယ်။ နောက်ပိုင်းတခြားဟာတွေ ထပ်တိုးဖို့ရှိလာရင် ဒီ folder ထဲမှာထပ်တိုးသွားပါ။ 
+### 5. src
+အထူးတလည်ပြောနေစရာမလိုတော့ပါဘူး။ အဓိကကျတဲ့ source folder ပါပဲ။ အထဲမှာတော့ ဒီလိုထပ်ခွဲထားပါတယ်။
+- constants
+- handlers - business logic တွေက ဒီထဲမှာရေးပါတယ်
+- plugins - fastify ရဲ့ core plugins, ecosystem plugin တွေနဲ့ custom plugins တွေကို ဒီထဲမှာရေးပါတယ်
+- routes - endpoints တွေနဲ့ handler တွေကို ဒီထဲမှာ map ပါတယ်
+- schemas - field တစ်ခုချင်းစီရဲ့ validation rule တွေကို ဒီထဲမှာရေးပါတယ်
+- utils - business logic မဟုတ်တဲ့ common function တေကို ဒီထဲမှာရေးပါတယ်
+ဒီ project တစ်ခုလုံးရဲ့ entry point က index.ts ပါ။
