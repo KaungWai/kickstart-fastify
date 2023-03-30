@@ -9,7 +9,7 @@ import { getAppVersion } from '@/utils/misc'
 export default fs(async function (server: FastifyInstance, _options: FastifyPluginOptions, done: CallableFunction) {
     if (env.ENVIRONMENT == 'development') {
         server.register(fastifySwagger, {
-            swagger: {
+            openapi: {
                 info: {
                     title: 'Kickstart Fastify',
                     description: 'Swagger API documentation',
@@ -19,10 +19,9 @@ export default fs(async function (server: FastifyInstance, _options: FastifyPlug
                     url: 'https://swagger.io',
                     description: 'Find more info here',
                 },
-                host: `${env.HOST}:${env.PORT}`,
-                schemes: ['http', 'https'],
-                consumes: ['application/json'],
-                produces: ['application/json'],
+                servers: [{
+                    url: `${env.HOST}${env.PORT == 80 ? '' : ':' + env.PORT}`
+                }],
             },
         })
         server.register(fastifySwaggerUi, {
