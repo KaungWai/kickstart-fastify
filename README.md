@@ -107,7 +107,6 @@ swagger ပေါ်မှာပဲ login လုပ်ပြီး product api �
 လက်ရှိ project ကို vscode အသုံးပြုပြီး ဆက်လက် develop လုပ်ဖို့တိုက်တွန်းလိုပါတယ်။
 <br>
 `.vscode/extensions.json` ထဲမှာ လက်ရှိ project အတွက် install လုပ်ထားသင့်တဲ့ extensions တွေကို define လုပ်ထားပါတယ်။ extension search box မှာ @recommended လို့ရိုက်ထည့်ပြီး တစ်ခုချင်းစီ install လုပ်သွားရုံပါပဲ။
-<img src="https://user-images.githubusercontent.com/30652148/228264248-27c7df9d-5fbc-4669-9000-9fa3e5a2a766.png">
 `.vscode/launch.json`ထဲမှာတော့ debug အတွက် setting ကို define လုပ်ထားပါတယ်။ vscode menu bar ရဲ့ Run ထဲက Start Debugging ကို နှိပ်ပြီး debug mode နဲ့ run လို့ရပါတယ်။
 <br>
 `.vscode/setting.json`ကတော့ လက်ရှိ workspace ရဲ့ setting ဖြစ်ပါတယ်။ ကိုယ်တိုင်ပဲလေ့လာကြည့်ပါ။ 
@@ -120,10 +119,10 @@ prisma.schema (database definition), migration history နဲ့ seeding data �
 ### 5. src
 အထူးတလည်ပြောနေစရာမလိုတော့ပါဘူး။ အဓိကကျတဲ့ source folder ပါပဲ။ အထဲမှာတော့ ဒီလိုထပ်ခွဲထားပါတယ်။
 - constants
-- handlers - business logic တွေက ဒီထဲမှာရေးပါတယ်
+- handlers - business logic တွေကို ဒီထဲမှာရေးပါတယ်
 - plugins - fastify ရဲ့ core plugins, ecosystem plugin တွေနဲ့ custom plugins တွေကို ဒီထဲမှာရေးပါတယ်
 - routes - endpoints တွေနဲ့ handler တွေကို ဒီထဲမှာ map ပါတယ်
 - schemas - field တစ်ခုချင်းစီရဲ့ validation rule တွေကို ဒီထဲမှာရေးပါတယ်
-- utils - business logic မဟုတ်တဲ့ common function တေကို ဒီထဲမှာရေးပါတယ်
+- utils - business logic မဟုတ်တဲ့ common function တွေကို ဒီထဲမှာရေးပါတယ်
 
 ဒီ project တစ်ခုလုံးရဲ့ entry point က index.ts ပါ။
