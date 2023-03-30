@@ -125,4 +125,5 @@ prisma.schema (database definition), migration history နဲ့ seeding data �
 - routes - endpoints တွေနဲ့ handler တွေကို ဒီထဲမှာ map ပါတယ်
 - schemas - field တစ်ခုချင်းစီရဲ့ validation rule တွေကို ဒီထဲမှာရေးပါတယ်
 - utils - business logic မဟုတ်တဲ့ common function တေကို ဒီထဲမှာရေးပါတယ်
+
 ဒီ project တစ်ခုလုံးရဲ့ entry point က index.ts ပါ။
