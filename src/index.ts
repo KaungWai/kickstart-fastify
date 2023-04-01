@@ -3,8 +3,8 @@ import { FastifyListenOptions } from "fastify"
 import build from "./app"
 import env from "./utils/env"
 
-// logger config
-const logConfig = {
+// logger configs
+const logConfigs = {
     development: {
         transport: {
             target: 'pino-pretty',
@@ -23,7 +23,9 @@ const opts: FastifyListenOptions = {
     port: env.PORT,
 }
 
-const server = build(logConfig)
+const server = build({
+    logger: logConfigs[env.ENVIRONMENT]
+})
 
 // boot process
 server.ready((e) => {
