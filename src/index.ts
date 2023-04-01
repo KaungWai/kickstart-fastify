@@ -1,22 +1,10 @@
-// resolve module alias
-import 'module-alias/register'
+import { FastifyListenOptions } from "fastify"
 
-import fastifyAutoload from '@fastify/autoload'
-import fastify, { FastifyListenOptions } from 'fastify'
-// imports
-import path from 'path'
-
-import env from '@/utils/env'
-import { getAppVersion } from '@/utils/misc'
-
-// server config
-const opts: FastifyListenOptions = {
-    host: env.HOST,
-    port: env.PORT,
-}
+import build from "./app"
+import env from "./utils/env"
 
 // logger config
-const envToLogger = {
+const logConfig = {
     development: {
         transport: {
             target: 'pino-pretty',
@@ -29,28 +17,21 @@ const envToLogger = {
     production: true,
 }
 
-// fastify instance
-const Server = fastify({
-    logger: envToLogger[env.ENVIRONMENT],
-})
+// server config
+const opts: FastifyListenOptions = {
+    host: env.HOST,
+    port: env.PORT,
+}
 
-// autoload plugins and routes
-Server.register(fastifyAutoload, { dir: path.join(__dirname, 'plugins') })
-Server.register(fastifyAutoload, { dir: path.join(__dirname, 'routes') })
-
-// root
-Server.get('/', (requst, reply) => {
-    reply.send({ name: 'Kickstart Fastify', version: getAppVersion(), message: 'Welcome to open sea.' })
-    return
-})
+const server = build(logConfig)
 
 // boot process
-Server.ready((e) => {
+server.ready((e) => {
     if (e) throw e
 })
 
 // listen
-Server.listen(opts, (err) => {
+server.listen(opts, (err) => {
     if (err) {
         console.error(err)
         process.exit(1)

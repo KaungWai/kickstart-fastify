@@ -12,7 +12,8 @@
         "start": "node ./dist/src/index.js",
         "lint": "eslint --fix ./",
         "migrate": "prisma migrate dev",
-        "seed": "prisma db seed"
+        "seed": "prisma db seed",
+        "sdkgen": "tsc && node ./dist/scripts/sdkgen.js"
     },
     "repository": {
         "type": "git",
@@ -63,7 +64,8 @@
         "prisma": "^4.7.1",
         "ts-node": "^10.9.1",
         "tsc-watch": "^6.0.0",
-        "typescript": "^4.8.4"
+        "typescript": "^4.8.4",
+        "swagger-typescript-api": "^12.0.4"
     },
     "prisma": {
         "seed": "ts-node ./prisma/seed.ts"
