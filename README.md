@@ -34,9 +34,9 @@ docker အသုံးပြုတတ်တယ် ဆိုရင် postgresql 
 docker compose up -d
 ```
 
-### 5. Generate JWT secrets
+### 5. Generate JWT secret
 
-authentication အတွက် JWT ကိုအသုံးပြုထားတဲ့အတွက် private key နဲ့ public key ကို generate လုပ်ပေးဖို့လိုပါတယ်။ Mac သို့မဟုတ် Linux အသုံးပြုသူဆိုရင် စက်ထဲမှာ openssl ဆိုတဲ့ software က install လုပ်ပြီးသားဖြစ်ဖို့များပါတယ်။ မရှိသေးဘူးရင်တော့ openssl ကို အရင်သွင်းလိုက်ပါ။ generate လုပ်တဲ့ script က ဒီ repo ထဲမှာ ကြို‌ရေးပေးထားပါတယ်။
+authentication အတွက် JWT ကိုအသုံးပြုထားတဲ့အတွက် jwt secret ကို generate လုပ်ပေးဖို့လိုပါတယ်။ generate လုပ်တဲ့ script က ဒီ repo ထဲမှာ ကြို‌ရေးပေးထားပါတယ်။ အောက်က command ကို run လိုက်ပါ။
 
 ```console
 npm run keygen
@@ -66,7 +66,7 @@ JWT_SECRET="/absolute-path-to/jwtsecret"
 DATABASE_URL="postgresql://kf_user:kf_password@localhost:5432/kickstart_fastify"
 ```
 
-`DATABASE_URL` ကို No.4 မှာ တည်ဆောက်ခဲ့တဲ့ database info အတိုင်းအစားထိုးပေးပါ။ `JWT_PRIVATE_KEY_PATH` နဲ့ `JWT_PUBLIC_KEY_PATH` ကို No.5 မှာ generate လုပ်ခဲ့တဲ့ key ‌တွေရဲ့ absolute path တွေနဲ့ အစားထိုးပေးပါ။
+`DATABASE_URL` ကို No.4 မှာ တည်ဆောက်ခဲ့တဲ့ database info အတိုင်းအစားထိုးပေးပါ။ `JWT_SECRET` ကို No.5 မှာ generate လုပ်ခဲ့တဲ့ jwt secret ‌ရဲ့ absolute path နဲ့ အစားထိုးပေးပါ။
 
 ### 7. Migrate
 
