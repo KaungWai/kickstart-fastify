@@ -10,8 +10,7 @@ const EnvProps = Type.Object({
     PORT: Type.Number(),
     ENVIRONMENT: Type.Union([Type.Literal('development'), Type.Literal('production')]),
     ALLOWED_ORIGINS: Type.String(),
-    JWT_PRIVATE_KEY_PATH: Type.String(),
-    JWT_PUBLIC_KEY_PATH: Type.String(),
+    JWT_SECRET: Type.String(),
 })
 
 const env: Static<typeof EnvProps> = envSchema({

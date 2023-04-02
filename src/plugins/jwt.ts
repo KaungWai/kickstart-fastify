@@ -7,17 +7,11 @@ import { SYS_CONSTANTS } from '@/constants/systemConstants'
 import env from '@/utils/env'
 
 // read key files
-const privateKey = readFileSync(env.JWT_PRIVATE_KEY_PATH, { encoding: SYS_CONSTANTS.DEFAULT_ENCODING })
-const publicKey = readFileSync(env.JWT_PUBLIC_KEY_PATH, { encoding: SYS_CONSTANTS.DEFAULT_ENCODING })
+const jwtSecret = readFileSync(env.JWT_SECRET, { encoding: SYS_CONSTANTS.DEFAULT_ENCODING })
 
 // jwt options
 const jwtOptins: FastifyJWTOptions = {
-    secret: {
-        private: privateKey,
-        public: publicKey,
-    },
-    sign: { algorithm: SYS_CONSTANTS.JWT_SIGN_ALGO },
-    verify: { algorithms: [SYS_CONSTANTS.JWT_SIGN_ALGO] },
+    secret: jwtSecret,
 }
 
 // register jwt plugin
