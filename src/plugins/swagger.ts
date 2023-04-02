@@ -4,7 +4,7 @@ import fastifySwagger from '@fastify/swagger'
 import fastifySwaggerUi from '@fastify/swagger-ui'
 import { FastifyInstance, FastifyPluginOptions } from 'fastify'
 import fs from 'fastify-plugin'
-import { OpenAPIV3 } from 'openapi-types';
+import { OpenAPIV3 } from 'openapi-types'
 import systemPath from 'path'
 import path from 'path'
 
@@ -25,12 +25,14 @@ export default fs(async function (server: FastifyInstance, _options: FastifyPlug
                     url: 'https://swagger.io',
                     description: 'Find more info here',
                 },
-                servers: [{
-                    url: `${env.HOST}${env.PORT == 80 ? '' : ':' + env.PORT}`
-                }],
+                servers: [
+                    {
+                        url: `http://${env.HOST}${env.PORT == 80 ? '' : ':' + env.PORT}`,
+                    },
+                ],
                 components: {
                     schemas: autoloadSchemas(path.join(__dirname, '../handlers/')),
-                }
+                },
             },
         })
         server.register(fastifySwaggerUi, {
@@ -42,24 +44,24 @@ export default fs(async function (server: FastifyInstance, _options: FastifyPlug
 
 // thanks to https://github.com/Neamar/auto-load
 const autoloadSchemas = function (path: string) {
-    let obj: { [key: string]: object } = {};
+    let obj: { [key: string]: object } = {}
     readdirSync(path).forEach(function (item) {
-        const fullPath = path + '/' + item;
-        const stats = statSync(fullPath);
+        const fullPath = path + '/' + item
+        const stats = statSync(fullPath)
         if (stats.isFile()) {
-            const extension = systemPath.extname(item);
+            const extension = systemPath.extname(item)
             if (extension === '.js') {
-                obj = { ...obj, ...require(fullPath) };
+                obj = { ...obj, ...require(fullPath) }
             }
         } else if (stats.isDirectory()) {
-            obj = { ...obj, ...autoloadSchemas(fullPath) };
+            obj = { ...obj, ...autoloadSchemas(fullPath) }
         }
-    });
-    const onlySchemaObj: { [key: string]: OpenAPIV3.SchemaObject; } = {};
+    })
+    const onlySchemaObj: { [key: string]: OpenAPIV3.SchemaObject } = {}
     for (const key in obj) {
         if (key.endsWith('Params') || key.endsWith('Query') || key.endsWith('Request') || key.endsWith('Result')) {
             onlySchemaObj[key] = obj[key] as OpenAPIV3.SchemaObject
         }
     }
-    return onlySchemaObj;
-};
+    return onlySchemaObj
+}

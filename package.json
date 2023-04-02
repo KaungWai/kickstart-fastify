@@ -13,6 +13,7 @@
         "lint": "eslint --fix ./",
         "migrate": "prisma migrate dev",
         "seed": "prisma db seed",
+        "keygen": "tsc && node ./dist/scripts/keygen.js",
         "sdkgen": "tsc && node ./dist/scripts/sdkgen.js"
     },
     "repository": {
