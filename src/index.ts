@@ -1,7 +1,9 @@
-import { FastifyListenOptions } from "fastify"
+import 'module-alias/register'
 
-import build from "./app"
-import env from "./utils/env"
+import { FastifyListenOptions } from 'fastify'
+
+import build from '@/app'
+import env from '@/utils/env'
 
 // logger configs
 const logConfigs = {
@@ -24,7 +26,7 @@ const opts: FastifyListenOptions = {
 }
 
 const server = build({
-    logger: logConfigs[env.ENVIRONMENT]
+    logger: logConfigs[env.ENVIRONMENT],
 })
 
 // boot process

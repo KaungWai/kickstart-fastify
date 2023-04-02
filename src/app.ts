@@ -1,12 +1,7 @@
-// resolve module alias
-import 'module-alias/register'
-
 import fastifyAutoload from '@fastify/autoload'
 import fastify from 'fastify'
-// imports
 import path from 'path'
 
-import env from '@/utils/env'
 import { getAppVersion } from '@/utils/misc'
 
 const build = (opts = {}) => {
@@ -23,7 +18,7 @@ const build = (opts = {}) => {
         return
     })
 
-    return app;
+    return app
 }
 
 export default build
