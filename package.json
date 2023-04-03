@@ -1,6 +1,6 @@
 {
     "name": "kickstart-fastify",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "",
     "main": "index.js",
     "_moduleAliases": {
@@ -13,8 +13,8 @@
         "lint": "eslint --fix ./",
         "migrate": "prisma migrate dev",
         "seed": "prisma db seed",
-        "keygen": "tsc && node ./dist/scripts/keygen.js",
-        "sdkgen": "tsc && node ./dist/scripts/sdkgen.js"
+        "keygen": "ts-node ./scripts/keygen.ts",
+        "sdkgen": "ts-node ./scripts/sdkgen.ts"
     },
     "repository": {
         "type": "git",

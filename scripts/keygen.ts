@@ -1,8 +1,10 @@
+import 'module-alias/register'
+
 import { randomBytes } from 'crypto'
 import { existsSync, mkdirSync, writeFileSync } from 'fs'
 import path from 'path'
 
-const outputFolder = path.join(__dirname, '../../keys')
+const outputFolder = path.join(__dirname, '../keys')
 
 const main = () => {
     if (!existsSync(outputFolder)) {

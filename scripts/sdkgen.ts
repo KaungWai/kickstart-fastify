@@ -1,11 +1,13 @@
+import 'module-alias/register'
+
 import { existsSync, mkdirSync } from 'fs'
 import path from 'path'
 import { generateApi } from 'swagger-typescript-api'
 
-import build from '../src/app'
-import { SYS_CONSTANTS } from '../src/constants/systemConstants'
+import build from '@/app'
+import { SYS_CONSTANTS } from '@/constants/systemConstants'
 
-const outputFolder = path.join(__dirname, '../../sdk')
+const outputFolder = path.join(__dirname, '../sdk')
 
 const main = async () => {
     if (!existsSync(outputFolder)) {
