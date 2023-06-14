@@ -22,7 +22,7 @@ const corsOptions: FastifyCorsOptions = {
 
         // from remote origins
         const remoteURL = new URL(origin)
-        const hostname = `${remoteURL.hostname}:${remoteURL.port}`
+        const hostname = remoteURL.hostname + `${remoteURL.port && remoteURL.port != '' ? ':' + remoteURL.port : ''}`
         if (allowedOrigins.indexOf(hostname) >= 0) {
             // pass
             cb(null, true)
