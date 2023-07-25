@@ -30,14 +30,23 @@ export default fs(async function (server: FastifyInstance, _options: FastifyPlug
                         url: `http://${env.HOST}${env.PORT == 80 ? '' : ':' + env.PORT}`,
                     },
                 ],
-                components: {
-                    schemas: autoloadSchemas(path.join(__dirname, '../handlers/')),
+            },
+            refResolver: {
+                clone: false,
+                buildLocalReference(json, _baseUri, _fragment, i) {
+                    const id = json.$id as string
+                    return id || `def-${i}`
                 },
             },
         })
         server.register(fastifySwaggerUi, {
             routePrefix: SYS_CONSTANTS.SWAGGER_ROUTE,
         })
+
+        const schemas = autoloadSchemas(path.join(__dirname, '../handlers/'))
+        for (const key in schemas) {
+            server.addSchema(schemas[key])
+        }
     }
     done()
 })
@@ -59,7 +68,7 @@ const autoloadSchemas = function (path: string) {
     })
     const onlySchemaObj: { [key: string]: OpenAPIV3.SchemaObject } = {}
     for (const key in obj) {
-        if (key.endsWith('Params') || key.endsWith('Query') || key.endsWith('Request') || key.endsWith('Result')) {
+        if (key.endsWith('Params') || key.endsWith('Query') || key.endsWith('Request') || key.endsWith('Result') || key === 'responseMessage') {
             onlySchemaObj[key] = obj[key] as OpenAPIV3.SchemaObject
         }
     }

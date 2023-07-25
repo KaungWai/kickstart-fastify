@@ -1,13 +1,11 @@
 import { Static, Type } from '@sinclair/typebox'
 
-import { DefaultResponse } from '@/handlers/base/defaultResponse'
+import { createDefaultResponseSchema } from '@/handlers/base/defaultResponse'
 
-const loginResult = Type.Null()
+export const loginResult = Type.Object({}, { $id: 'loginResult' })
 
-export const loginResponse: DefaultResponse<typeof loginResult> = {
-    result: loginResult,
-}
+export const loginResponse = createDefaultResponseSchema(loginResult, 'loginResponse')
 
 export type LoginResult = Static<typeof loginResult>
 
-export type LoginResponse = DefaultResponse<LoginResult>
+export type LoginResponse = Static<typeof loginResponse>

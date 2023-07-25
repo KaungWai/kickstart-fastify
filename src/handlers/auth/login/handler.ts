@@ -42,10 +42,11 @@ export const loginHandler: RouteHandlerMethod = async function (request, reply):
 
     reply.status(StatusCodes.OK)
 
-    const result: LoginResult = null
+    const result: LoginResult = {}
 
     const response: LoginResponse = {
         result: result,
+        message: undefined,
     }
 
     return response

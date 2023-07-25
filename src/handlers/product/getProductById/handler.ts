@@ -3,7 +3,7 @@ import { RouteHandlerMethod } from 'fastify'
 import { StatusCodes } from 'http-status-codes'
 
 import { GetProductByIdParams } from './parameter'
-import { GetProductByIdResponse,GetProductByIdResult } from './response'
+import { GetProductByIdResponse, GetProductByIdResult } from './response'
 
 export const getProductByIdHandler: RouteHandlerMethod = async function (request, reply): Promise<GetProductByIdResponse | HttpError> {
     const params = request.params as GetProductByIdParams
@@ -27,6 +27,7 @@ export const getProductByIdHandler: RouteHandlerMethod = async function (request
 
     const response: GetProductByIdResponse = {
         result: result,
+        message: undefined,
     }
 
     reply.status(StatusCodes.OK)

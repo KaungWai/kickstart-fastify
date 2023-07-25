@@ -1,11 +1,10 @@
 import { Static, Type } from '@sinclair/typebox'
 
-import { DefaultResponse } from '@/handlers/base/defaultResponse'
+import { createDefaultResponseSchema } from '@/handlers/base/defaultResponse'
 
-const deleteProductByIdResult = Type.Unsafe()
-export const deleteProductByIdResponse: DefaultResponse<typeof deleteProductByIdResult> = {
-    result: deleteProductByIdResult,
-}
+export const deleteProductByIdResult = Type.Object({}, { $id: 'deleteProductByIdResult' })
+
+export const deleteProductByIdResponse = createDefaultResponseSchema(deleteProductByIdResult, 'deleteProductByIdResponse')
 
 export type DeleteProductByIdResult = Static<typeof deleteProductByIdResult>
-export type DeleteProductByIdResponse = DefaultResponse<DeleteProductByIdResult>
+export type DeleteProductByIdResponse = Static<typeof deleteProductByIdResponse>

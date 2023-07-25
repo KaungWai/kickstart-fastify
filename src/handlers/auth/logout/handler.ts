@@ -10,9 +10,10 @@ export const logoutHandler: RouteHandlerMethod = async function (request, reply)
     reply.clearCookie(SYS_CONSTANTS.JWT_COOKIE_KEY, { path: '/' })
     reply.status(StatusCodes.OK)
 
-    const result: LogoutResult = null
+    const result: LogoutResult = {}
     const response: LogoutResponse = {
         result: result,
+        message: undefined,
     }
 
     return response

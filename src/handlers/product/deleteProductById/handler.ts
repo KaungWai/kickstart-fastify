@@ -3,7 +3,7 @@ import { RouteHandlerMethod } from 'fastify'
 import { StatusCodes } from 'http-status-codes'
 
 import { DeleteProductByIdParams } from './parameter'
-import { DeleteProductByIdResponse,DeleteProductByIdResult } from './response'
+import { DeleteProductByIdResponse, DeleteProductByIdResult } from './response'
 
 export const deleteProductByIdHandler: RouteHandlerMethod = async function (request, reply): Promise<DeleteProductByIdResponse | HttpError> {
     const params = request.params as DeleteProductByIdParams
@@ -24,10 +24,11 @@ export const deleteProductByIdHandler: RouteHandlerMethod = async function (requ
         },
     })
 
-    const result: DeleteProductByIdResult = null
+    const result: DeleteProductByIdResult = {}
 
     const response: DeleteProductByIdResponse = {
         result: result,
+        message: undefined,
     }
 
     reply.status(StatusCodes.NO_CONTENT)
