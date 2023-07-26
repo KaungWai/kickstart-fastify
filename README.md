@@ -155,7 +155,7 @@ prisma.schema (database definition), migration history နဲ့ seeding data �
 
 ### 5. src
 
-အထူးတလည်ပြောနေစရာမလိုတော့ပါဘူး။ အဓိကကျတဲ့ source folder ပါပဲ။ အထဲမှာတော့ ဒီလိုထပ်ခွဲထားပါတယ်။
+အဓိကကျတဲ့ source folder ပါပဲ။ အထဲမှာတော့ ဒီလိုထပ်ခွဲထားပါတယ်။
 
 -   constants
 -   handlers - business logic တွေကို ဒီထဲမှာရေးပါတယ်
