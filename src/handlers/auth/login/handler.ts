@@ -46,7 +46,6 @@ export const loginHandler: RouteHandlerMethod = async function (request, reply):
 
     const response: LoginResponse = {
         result: result,
-        message: undefined,
     }
 
     return response

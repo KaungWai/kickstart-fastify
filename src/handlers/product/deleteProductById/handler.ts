@@ -28,7 +28,6 @@ export const deleteProductByIdHandler: RouteHandlerMethod = async function (requ
 
     const response: DeleteProductByIdResponse = {
         result: result,
-        message: undefined,
     }
 
     reply.status(StatusCodes.NO_CONTENT)

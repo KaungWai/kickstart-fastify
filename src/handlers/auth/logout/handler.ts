@@ -13,7 +13,6 @@ export const logoutHandler: RouteHandlerMethod = async function (request, reply)
     const result: LogoutResult = {}
     const response: LogoutResponse = {
         result: result,
-        message: undefined,
     }
 
     return response

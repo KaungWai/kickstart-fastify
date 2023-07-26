@@ -27,7 +27,6 @@ export const getProductByIdHandler: RouteHandlerMethod = async function (request
 
     const response: GetProductByIdResponse = {
         result: result,
-        message: undefined,
     }
 
     reply.status(StatusCodes.OK)
