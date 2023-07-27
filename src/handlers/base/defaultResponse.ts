@@ -1,17 +1,17 @@
-import { TObject, TOptional, TRef, TSchema, TString, Type } from '@sinclair/typebox'
+import { TObject, TRef, TSchema, Type } from '@sinclair/typebox'
 
-export const responseMessage = Type.Union([Type.String(), Type.Undefined()], { $id: 'responseMessage' })
+export const messageSchema = Type.Optional(Type.String())
 
 type DefaultResponse<T extends TSchema = TSchema> = TObject<{
     result: TRef<T>
-    message: TOptional<TString<string>>
+    message: typeof messageSchema
 }>
 
 export const createDefaultResponseSchema = <T extends TSchema = TSchema>(resultSchema: T, $id: string): DefaultResponse<T> => {
     return Type.Object(
         {
             result: Type.Ref(resultSchema),
-            message: Type.Optional(Type.String()),
+            message: messageSchema,
         },
         { $id: $id },
     )
