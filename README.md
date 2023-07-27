@@ -155,7 +155,7 @@ prisma.schema (database definition), migration history နဲ့ seeding data �
 
 ### 5. src
 
-အထူးတလည်ပြောနေစရာမလိုတော့ပါဘူး။ အဓိကကျတဲ့ source folder ပါပဲ။ အထဲမှာတော့ ဒီလိုထပ်ခွဲထားပါတယ်။
+အဓိကကျတဲ့ source folder ပါပဲ။ အထဲမှာတော့ ဒီလိုထပ်ခွဲထားပါတယ်။
 
 -   constants
 -   handlers - business logic တွေကို ဒီထဲမှာရေးပါတယ်
@@ -165,3 +165,11 @@ prisma.schema (database definition), migration history နဲ့ seeding data �
 -   utils - business logic မဟုတ်တဲ့ common function တွေကို ဒီထဲမှာရေးပါတယ်
 
 ဒီ project တစ်ခုလုံးရဲ့ entry point က index.ts ပါ။
+
+## Application Layers
+<img width="806" alt="image" src="https://github.com/KaungWai/kickstart-fastify/assets/30652148/df50ecb7-1e43-483d-92aa-3326846cec1c">
+
+## Organization of a handler
+<img width="752" alt="image" src="https://github.com/KaungWai/kickstart-fastify/assets/30652148/976aa9c1-b857-4e62-93a8-4bdfe0ef9dc9">
+
+
