@@ -10,6 +10,7 @@ It would be nice to describe your api overivew here.
 `
 
 export const deleteProductByIdSchema: FastifySchema = {
+    operationId: 'deleteProduct',
     summary: `delete product by productId`,
     tags: ['Product'],
     description: description,

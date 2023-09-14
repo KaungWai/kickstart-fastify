@@ -10,6 +10,7 @@ It would be nice to describe your api overivew here.
 `
 
 export const getProductsSchema: FastifySchema = {
+    operationId: 'getProducts',
     summary: `get products by filter`,
     tags: ['Product'],
     description: description,

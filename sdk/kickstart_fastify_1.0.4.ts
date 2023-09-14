@@ -22,8 +22,6 @@ export type LoginResult = object
 
 export type LogoutResult = object
 
-export type ResponseMessage = object
-
 export interface CreateProductRequest {
     /**
      * @minLength 1
@@ -367,7 +365,7 @@ export class HttpClient<SecurityDataType = unknown> {
 
 /**
  * @title Kickstart Fastify
- * @version 1.0.3
+ * @version 1.0.4
  * @baseUrl http://localhost:3333
  * @externalDocs https://swagger.io
  *
@@ -379,15 +377,15 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
          * @description # Login You can use some markdown syntaxs like header, lists and text formattings. It would be nice to describe your api overivew here.
          *
          * @tags Auth
-         * @name LoginCreate
+         * @name Login
          * @summary Login
          * @request POST:/auth/login
          */
-        loginCreate: (data: LoginRequest, params: RequestParams = {}) =>
+        login: (data: LoginRequest, params: RequestParams = {}) =>
             this.request<
                 {
                     result: LoginResult
-                    message: ResponseMessage
+                    message?: string
                 },
                 any
             >({
@@ -403,15 +401,15 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
          * @description # Logout You can use some markdown syntaxs like header, lists and text formattings. It would be nice to describe your api overivew here.
          *
          * @tags Auth
-         * @name LogoutCreate
+         * @name Logout
          * @summary Logout
          * @request POST:/auth/logout
          */
-        logoutCreate: (params: RequestParams = {}) =>
+        logout: (params: RequestParams = {}) =>
             this.request<
                 {
                     result: LogoutResult
-                    message: ResponseMessage
+                    message?: string
                 },
                 any
             >({
@@ -426,11 +424,11 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
          * @description # Create product You can use some markdown syntaxs like header, lists and text formattings. It would be nice to describe your api overivew here.
          *
          * @tags Product
-         * @name ProductCreate
+         * @name CreateProduct
          * @summary create a new product
          * @request POST:/product
          */
-        productCreate: (
+        createProduct: (
             data: {
                 /**
                  * @minLength 1
@@ -450,7 +448,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
             this.request<
                 {
                     result: CreateProductResult
-                    message: ResponseMessage
+                    message?: string
                 },
                 any
             >({
@@ -466,11 +464,11 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
          * @description # Get procucts You can use some markdown syntaxs like header, lists and text formattings. It would be nice to describe your api overivew here.
          *
          * @tags Product
-         * @name ProductList
+         * @name GetProducts
          * @summary get products by filter
          * @request GET:/product
          */
-        productList: (
+        getProducts: (
             query?: {
                 /**
                  * @minLength 12
@@ -497,7 +495,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
             this.request<
                 {
                     result: GetProductsResult
-                    message: ResponseMessage
+                    message?: string
                 },
                 any
             >({
@@ -512,11 +510,11 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
          * @description # Update product You can use some markdown syntaxs like header, lists and text formattings. It would be nice to describe your api overivew here.
          *
          * @tags Product
-         * @name ProductUpdate
+         * @name UpdateProduct
          * @summary update a product
          * @request PUT:/product
          */
-        productUpdate: (
+        updateProduct: (
             data: {
                 /**
                  * @minLength 12
@@ -541,7 +539,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
             this.request<
                 {
                     result: UpdateProductResult
-                    message: ResponseMessage
+                    message?: string
                 },
                 any
             >({
@@ -557,15 +555,15 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
          * @description # Get product by productId You can use some markdown syntaxs like header, lists and text formattings. It would be nice to describe your api overivew here.
          *
          * @tags Product
-         * @name ProductDetail
+         * @name GetProductById
          * @summary get a product by productId
          * @request GET:/product/{productId}
          */
-        productDetail: (productId: string, params: RequestParams = {}) =>
+        getProductById: (productId: string, params: RequestParams = {}) =>
             this.request<
                 {
                     result: GetProductByIdResult
-                    message: ResponseMessage
+                    message?: string
                 },
                 any
             >({
@@ -579,15 +577,15 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
          * @description # Delete product by productId You can use some markdown syntaxs like header, lists and text formattings. It would be nice to describe your api overivew here.
          *
          * @tags Product
-         * @name ProductDelete
+         * @name DeleteProduct
          * @summary delete product by productId
          * @request DELETE:/product/{productId}
          */
-        productDelete: (productId: string, params: RequestParams = {}) =>
+        deleteProduct: (productId: string, params: RequestParams = {}) =>
             this.request<
                 {
                     result: DeleteProductByIdResult
-                    message: ResponseMessage
+                    message?: string
                 },
                 any
             >({

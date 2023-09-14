@@ -10,6 +10,7 @@ It would be nice to describe your api overivew here.
 `
 
 export const updateProductSchema: FastifySchema = {
+    operationId: 'updateProduct',
     summary: `update a product`,
     tags: ['Product'],
     description: description,

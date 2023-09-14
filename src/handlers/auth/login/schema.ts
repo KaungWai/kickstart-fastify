@@ -11,6 +11,7 @@ It would be nice to describe your api overivew here.
 `
 
 export const loginSchema: FastifySchema = {
+    operationId: 'login',
     summary: `Login`,
     tags: ['Auth'],
     description: description,
