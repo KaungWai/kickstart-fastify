@@ -8,15 +8,17 @@ import env from '@/utils/env'
 // logger configs
 const logConfigs = {
     development: {
+        level: 'debug',
         transport: {
             target: 'pino-pretty',
             options: {
-                translateTime: 'HH:MM:ss Z',
-                ignore: 'pid,hostname',
+                translateTime: 'yyyy-MM-dd HH:mm:ss.l Z',
             },
         },
     },
-    production: true,
+    production: {
+        level: 'info',
+    },
 }
 
 // server config
