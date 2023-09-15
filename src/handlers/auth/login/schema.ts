@@ -17,6 +17,6 @@ export const loginSchema: FastifySchema = {
     description: description,
     body: Type.Ref(loginRequest),
     response: {
-        200: loginResponse,
+        200: Type.Ref(loginResponse),
     },
 }

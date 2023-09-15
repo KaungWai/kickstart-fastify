@@ -1,3 +1,4 @@
+import { Type } from '@sinclair/typebox'
 import { FastifySchema } from 'fastify'
 
 import { logoutResponse } from './response'
@@ -14,6 +15,6 @@ export const logoutSchema: FastifySchema = {
     tags: ['Auth'],
     description: description,
     response: {
-        200: logoutResponse,
+        200: Type.Ref(logoutResponse),
     },
 }

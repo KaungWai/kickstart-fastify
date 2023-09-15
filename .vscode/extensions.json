@@ -4,6 +4,7 @@
         "ms-azuretools.vscode-docker",
         "vscode-icons-team.vscode-icons",
         "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "yoavbls.pretty-ts-errors"
     ]
 }

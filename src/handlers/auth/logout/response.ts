@@ -1,10 +1,10 @@
 import { Static, Type } from '@sinclair/typebox'
 
-import { createDefaultResponseSchema } from '@/handlers/base/defaultResponse'
+import { handlerUtils } from '@/utils/handler'
 
 export const logoutResult = Type.Object({}, { $id: 'logoutResult' })
 
-export const logoutResponse = createDefaultResponseSchema(logoutResult, 'logoutResponse')
+export const logoutResponse = handlerUtils.buildResponseSchema(logoutResult, 'logoutResponse')
 
 export type LogoutResult = Static<typeof logoutResult>
 

@@ -1,3 +1,4 @@
+import { Type } from '@sinclair/typebox'
 import { FastifySchema } from 'fastify'
 
 import { deleteProductByIdParams } from './parameter'
@@ -14,8 +15,8 @@ export const deleteProductByIdSchema: FastifySchema = {
     summary: `delete product by productId`,
     tags: ['Product'],
     description: description,
-    params: deleteProductByIdParams,
+    params: Type.Ref(deleteProductByIdParams),
     response: {
-        204: deleteProductByIdResponse,
+        204: Type.Ref(deleteProductByIdResponse),
     },
 }
