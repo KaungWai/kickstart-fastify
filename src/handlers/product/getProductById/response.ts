@@ -1,7 +1,7 @@
 import { Static, Type } from '@sinclair/typebox'
 
-import { createDefaultResponseSchema } from '@/handlers/base/defaultResponse'
 import { field } from '@/schemas/fields'
+import { handlerUtils } from '@/utils/handler'
 
 export const getProductByIdResult = Type.Object(
     {
@@ -13,7 +13,7 @@ export const getProductByIdResult = Type.Object(
     { $id: 'getProductByIdResult' },
 )
 
-export const getProductByIdResponse = createDefaultResponseSchema(getProductByIdResult, 'getProductByIdResponse')
+export const getProductByIdResponse = handlerUtils.buildResponseSchema(getProductByIdResult, 'getProductByIdResponse')
 
 export type GetProductByIdResult = Static<typeof getProductByIdResult>
 

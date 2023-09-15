@@ -20,7 +20,17 @@ export interface LoginRequest {
 
 export type LoginResult = object
 
+export interface LoginResponse {
+    result: LoginResult
+    message?: string
+}
+
 export type LogoutResult = object
+
+export interface LogoutResponse {
+    result: LogoutResult
+    message?: string
+}
 
 export interface CreateProductRequest {
     /**
@@ -57,6 +67,11 @@ export interface CreateProductResult {
     productPrice: number
 }
 
+export interface CreateProductResponse {
+    result: CreateProductResult
+    message?: string
+}
+
 export interface DeleteProductByIdParams {
     /**
      * @minLength 12
@@ -66,6 +81,11 @@ export interface DeleteProductByIdParams {
 }
 
 export type DeleteProductByIdResult = object
+
+export interface DeleteProductByIdResponse {
+    result: DeleteProductByIdResult
+    message?: string
+}
 
 export interface GetProductByIdParams {
     /**
@@ -93,6 +113,11 @@ export interface GetProductByIdResult {
     productDescription: string
     /** @min 1 */
     productPrice: number
+}
+
+export interface GetProductByIdResponse {
+    result: GetProductByIdResult
+    message?: string
 }
 
 export interface GetProductsQuery {
@@ -137,6 +162,11 @@ export type GetProductsResult = {
     productPrice: number
 }[]
 
+export interface GetProductsResponse {
+    result: GetProductsResult
+    message?: string
+}
+
 export interface UpdateProductRequest {
     /**
      * @minLength 12
@@ -175,6 +205,11 @@ export interface UpdateProductResult {
     productDescription: string
     /** @min 1 */
     productPrice: number
+}
+
+export interface UpdateProductResponse {
+    result: UpdateProductResult
+    message?: string
 }
 
 export type QueryParamsType = Record<string | number, any>
@@ -382,13 +417,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
          * @request POST:/auth/login
          */
         login: (data: LoginRequest, params: RequestParams = {}) =>
-            this.request<
-                {
-                    result: LoginResult
-                    message?: string
-                },
-                any
-            >({
+            this.request<LoginResponse, any>({
                 path: `/auth/login`,
                 method: 'POST',
                 body: data,
@@ -406,13 +435,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
          * @request POST:/auth/logout
          */
         logout: (params: RequestParams = {}) =>
-            this.request<
-                {
-                    result: LogoutResult
-                    message?: string
-                },
-                any
-            >({
+            this.request<LogoutResponse, any>({
                 path: `/auth/logout`,
                 method: 'POST',
                 format: 'json',
@@ -428,30 +451,8 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
          * @summary create a new product
          * @request POST:/product
          */
-        createProduct: (
-            data: {
-                /**
-                 * @minLength 1
-                 * @maxLength 100
-                 */
-                productName: string
-                /**
-                 * @minLength 1
-                 * @maxLength 500
-                 */
-                productDescription: string
-                /** @min 1 */
-                productPrice: number
-            },
-            params: RequestParams = {},
-        ) =>
-            this.request<
-                {
-                    result: CreateProductResult
-                    message?: string
-                },
-                any
-            >({
+        createProduct: (data: CreateProductRequest, params: RequestParams = {}) =>
+            this.request<CreateProductResponse, any>({
                 path: `/product`,
                 method: 'POST',
                 body: data,
@@ -492,13 +493,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
             },
             params: RequestParams = {},
         ) =>
-            this.request<
-                {
-                    result: GetProductsResult
-                    message?: string
-                },
-                any
-            >({
+            this.request<GetProductsResponse, any>({
                 path: `/product`,
                 method: 'GET',
                 query: query,
@@ -514,35 +509,8 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
          * @summary update a product
          * @request PUT:/product
          */
-        updateProduct: (
-            data: {
-                /**
-                 * @minLength 12
-                 * @maxLength 12
-                 */
-                productId: string
-                /**
-                 * @minLength 1
-                 * @maxLength 100
-                 */
-                productName: string
-                /**
-                 * @minLength 1
-                 * @maxLength 500
-                 */
-                productDescription: string
-                /** @min 1 */
-                productPrice: number
-            },
-            params: RequestParams = {},
-        ) =>
-            this.request<
-                {
-                    result: UpdateProductResult
-                    message?: string
-                },
-                any
-            >({
+        updateProduct: (data: UpdateProductRequest, params: RequestParams = {}) =>
+            this.request<UpdateProductResponse, any>({
                 path: `/product`,
                 method: 'PUT',
                 body: data,
@@ -560,13 +528,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
          * @request GET:/product/{productId}
          */
         getProductById: (productId: string, params: RequestParams = {}) =>
-            this.request<
-                {
-                    result: GetProductByIdResult
-                    message?: string
-                },
-                any
-            >({
+            this.request<GetProductByIdResponse, any>({
                 path: `/product/${productId}`,
                 method: 'GET',
                 format: 'json',
@@ -582,13 +544,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
          * @request DELETE:/product/{productId}
          */
         deleteProduct: (productId: string, params: RequestParams = {}) =>
-            this.request<
-                {
-                    result: DeleteProductByIdResult
-                    message?: string
-                },
-                any
-            >({
+            this.request<DeleteProductByIdResponse, any>({
                 path: `/product/${productId}`,
                 method: 'DELETE',
                 format: 'json',

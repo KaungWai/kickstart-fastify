@@ -1,3 +1,4 @@
+import { Type } from '@sinclair/typebox'
 import { FastifySchema } from 'fastify'
 
 import { getProductsQuery } from './query'
@@ -14,8 +15,8 @@ export const getProductsSchema: FastifySchema = {
     summary: `get products by filter`,
     tags: ['Product'],
     description: description,
-    querystring: getProductsQuery,
+    querystring: Type.Ref(getProductsQuery),
     response: {
-        200: getProductsResponse,
+        200: Type.Ref(getProductsResponse),
     },
 }

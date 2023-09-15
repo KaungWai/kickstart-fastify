@@ -1,3 +1,4 @@
+import { Type } from '@sinclair/typebox'
 import { FastifySchema } from 'fastify'
 
 import { createProductRequest } from './request'
@@ -14,8 +15,8 @@ export const createProductSchema: FastifySchema = {
     summary: `create a new product`,
     tags: ['Product'],
     description: description,
-    body: createProductRequest,
+    body: Type.Ref(createProductRequest),
     response: {
-        201: createProductResponse,
+        201: Type.Ref(createProductResponse),
     },
 }

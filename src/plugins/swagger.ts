@@ -68,7 +68,7 @@ const autoloadSchemas = function (path: string) {
     })
     const onlySchemaObj: { [key: string]: OpenAPIV3.SchemaObject } = {}
     for (const key in obj) {
-        if (key.endsWith('Params') || key.endsWith('Query') || key.endsWith('Request') || key.endsWith('Result') || key === 'responseMessage') {
+        if (Reflect.get(obj[key], SYS_CONSTANTS.SCHEMA_SYMBOL)) {
             onlySchemaObj[key] = obj[key] as OpenAPIV3.SchemaObject
         }
     }
