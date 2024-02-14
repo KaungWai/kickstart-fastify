@@ -16,6 +16,15 @@ const logConfigs = {
             },
         },
     },
+    test: {
+        level: 'debug',
+        transport: {
+            target: 'pino-pretty',
+            options: {
+                translateTime: 'yyyy-MM-dd HH:mm:ss.l Z',
+            },
+        },
+    },
     production: {
         level: 'info',
     },

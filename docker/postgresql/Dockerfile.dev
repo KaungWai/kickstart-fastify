@@ -1,4 +1,4 @@
-FROM postgres:alpine3.17
+FROM postgres:16
 ENV POSTGRES_DB=kickstart_fastify
 ENV POSTGRES_USER=kf_user
 ENV POSTGRES_PASSWORD=kf_password

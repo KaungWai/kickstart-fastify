@@ -7,19 +7,11 @@ import { SYS_CONSTANTS } from '../../src/constants/systemConstants'
 export const seedUser = async (prisma: PrismaClient) => {
     const users = [
         {
-            id: 'AAABBBCCC001',
+            id: 'USER00000001',
             permission: Permission.READ_ONLY,
         },
         {
-            id: 'AAABBBCCC002',
-            permission: Permission.READ_ONLY,
-        },
-        {
-            id: 'AAABBBCCC003',
-            permission: Permission.READ_WRITE,
-        },
-        {
-            id: 'AAABBBCCC004',
+            id: 'USER00000002',
             permission: Permission.READ_WRITE,
         },
     ]

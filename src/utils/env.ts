@@ -8,7 +8,7 @@ expand(config())
 const EnvProps = Type.Object({
     HOST: Type.String(),
     PORT: Type.Number(),
-    ENVIRONMENT: Type.Union([Type.Literal('development'), Type.Literal('production')]),
+    ENVIRONMENT: Type.Union([Type.Literal('development'), Type.Literal('test'), Type.Literal('production')]),
     ALLOWED_ORIGINS: Type.String(),
     JWT_SECRET: Type.String(),
 })

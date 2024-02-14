@@ -2,6 +2,7 @@ import fastifyAutoload from '@fastify/autoload'
 import fastify from 'fastify'
 import path from 'path'
 
+import env from '@/utils/env'
 import { getAppVersion } from '@/utils/misc'
 
 const build = (opts = {}) => {
@@ -14,7 +15,7 @@ const build = (opts = {}) => {
 
     // root
     app.get('/', (requst, reply) => {
-        reply.send({ name: 'Kickstart Fastify', version: getAppVersion(), message: 'Welcome to open sea.' })
+        reply.send({ name: 'Kickstart Fastify', version: getAppVersion(), environment: env.ENVIRONMENT })
         return
     })
 

@@ -9,13 +9,13 @@ const allowedOrigins = env.ALLOWED_ORIGINS.split(',')
 const corsOptions: FastifyCorsOptions = {
     origin: (origin, cb) => {
         if (!origin) {
-            if (env.ENVIRONMENT === 'development') {
+            if (env.ENVIRONMENT === 'development' || env.ENVIRONMENT === 'test') {
                 // allow unknown origin in development mode
                 cb(null, true)
                 return
             } else {
                 // deny
-                cb(new Error('Not Allowed'), false)
+                cb(new Error('Not allowed: unkown origin'), false)
                 return
             }
         }
@@ -30,7 +30,7 @@ const corsOptions: FastifyCorsOptions = {
         }
 
         // deny
-        cb(new Error('Not Allowed'), false)
+        cb(new Error(`Not Allowed: ${remoteURL}`), false)
     },
 }
 

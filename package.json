@@ -7,14 +7,17 @@
         "@": "dist/src"
     },
     "scripts": {
-        "dev": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./dist/src/index.js\"",
-        "build": "tsc",
-        "start": "node ./dist/src/index.js",
+        "dev": "npm run env.dev && tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./dist/src/index.js\"",
+        "test": "npm run env.test && npm run prisma.reset && tsc && tap",
+        "start": "tsc && node ./dist/src/index.js",
         "lint": "eslint --fix ./",
-        "migrate": "prisma migrate dev",
-        "seed": "prisma db seed",
-        "keygen": "ts-node ./scripts/keygen.ts",
-        "sdkgen": "ts-node ./scripts/sdkgen.ts"
+        "prisma.migrate": "prisma migrate dev",
+        "prisma.seed": "prisma db seed",
+        "prisma.reset": "prisma migrate reset --force --skip-seed && prisma db push && prisma db seed",
+        "script.keygen": "ts-node ./scripts/keygen.ts",
+        "script.sdkgen": "ts-node ./scripts/sdkgen.ts",
+        "env.dev": "node -e \"fs.copyFileSync('.env.dev', '.env')\"",
+        "env.test": "node -e \"fs.copyFileSync('.env.test', '.env')\""
     },
     "repository": {
         "type": "git",
@@ -63,6 +66,7 @@
         "prettier": "2.8.1",
         "prisma": "^4.7.1",
         "swagger-typescript-api": "^12.0.4",
+        "tap": "^18.7.0",
         "ts-node": "^10.9.1",
         "tsc-watch": "^6.0.0",
         "typescript": "^4.8.4"

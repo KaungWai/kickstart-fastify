@@ -13,6 +13,12 @@ import env from '@/utils/env'
 import { getAppVersion } from '@/utils/misc'
 
 export default fs(async function (server: FastifyInstance, _options: FastifyPluginOptions, done: CallableFunction) {
+    const schemas = autoloadSchemas(path.join(__dirname, '../handlers/'))
+
+    for (const key in schemas) {
+        server.addSchema(schemas[key])
+    }
+
     if (env.ENVIRONMENT == 'development') {
         server.register(fastifySwagger, {
             openapi: {
@@ -42,11 +48,6 @@ export default fs(async function (server: FastifyInstance, _options: FastifyPlug
         server.register(fastifySwaggerUi, {
             routePrefix: SYS_CONSTANTS.SWAGGER_ROUTE,
         })
-
-        const schemas = autoloadSchemas(path.join(__dirname, '../handlers/'))
-        for (const key in schemas) {
-            server.addSchema(schemas[key])
-        }
     }
     done()
 })

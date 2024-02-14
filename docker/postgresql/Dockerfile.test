@@ -1,0 +1,5 @@
+FROM postgres:16
+ENV POSTGRES_DB=kickstart_fastify_test
+ENV POSTGRES_USER=kf_user_test
+ENV POSTGRES_PASSWORD=kf_password_test
+EXPOSE 5432

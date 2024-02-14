@@ -1,0 +1,86 @@
+[
+    {
+        "productId": "123456789012",
+        "productName": "Dummy Product",
+        "productDescription": "This is a dummy product",
+        "productPrice": 9
+    },
+    {
+        "productId": "123456789013",
+        "productName": "Another Dummy Product",
+        "productDescription": "This is another dummy product",
+        "productPrice": 19
+    },
+    {
+        "productId": "123456789014",
+        "productName": "Third Dummy Product",
+        "productDescription": "This is the third dummy product",
+        "productPrice": 29
+    },
+    {
+        "productId": "123456789015",
+        "productName": "Fourth Dummy Product",
+        "productDescription": "This is the fourth dummy product",
+        "productPrice": 39
+    },
+    {
+        "productId": "123456789016",
+        "productName": "Fifth Dummy Product",
+        "productDescription": "This is the fifth dummy product",
+        "productPrice": 49
+    },
+    {
+        "productId": "123456789017",
+        "productName": "Sixth Dummy Product",
+        "productDescription": "This is the sixth dummy product",
+        "productPrice": 59
+    },
+    {
+        "productId": "123456789018",
+        "productName": "Seventh Dummy Product",
+        "productDescription": "This is the seventh dummy product",
+        "productPrice": 69
+    },
+    {
+        "productId": "123456789019",
+        "productName": "Eighth Dummy Product",
+        "productDescription": "This is the eighth dummy product",
+        "productPrice": 79
+    },
+    {
+        "productId": "123456789020",
+        "productName": "Ninth Dummy Product",
+        "productDescription": "This is the ninth dummy product",
+        "productPrice": 89
+    },
+    {
+        "productId": "123456789021",
+        "productName": "Tenth Dummy Product",
+        "productDescription": "This is the tenth dummy product",
+        "productPrice": 99
+    },
+    {
+        "productId": "123456789022",
+        "productName": "Eleventh Dummy Product",
+        "productDescription": "This is the eleventh dummy product",
+        "productPrice": 109
+    },
+    {
+        "productId": "123456789023",
+        "productName": "Twelfth Dummy Product",
+        "productDescription": "This is the twelfth dummy product",
+        "productPrice": 119
+    },
+    {
+        "productId": "123456789024",
+        "productName": "Thirteenth Dummy Product",
+        "productDescription": "This is the thirteenth dummy product",
+        "productPrice": 129
+    },
+    {
+        "productId": "123456789025",
+        "productName": "Fourteenth Dummy Product",
+        "productDescription": "This is the fourteenth dummy product",
+        "productPrice": 139
+    }
+]
