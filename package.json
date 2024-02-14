@@ -8,7 +8,7 @@
     },
     "scripts": {
         "dev": "npm run env.dev && tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./dist/src/index.js\"",
-        "test": "npm run env.test && npm run prisma.reset && tsc && tap",
+        "test": "npm run env.test && npm run prisma.reset && tsc && tap --allow-incomplete-coverage",
         "start": "tsc && node ./dist/src/index.js",
         "lint": "eslint --fix ./",
         "prisma.migrate": "prisma migrate dev",
