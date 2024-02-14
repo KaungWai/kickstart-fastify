@@ -20,11 +20,15 @@ jobs:
               uses: actions/setup-node@v2
               with:
                   node-version: 16
+
             - name: Set up PostgreSQL
               run: docker-compose up -d
 
             - name: Install dependencies
               run: npm install
+
+            - name: Generate jwt secret
+              run: npm run script.keygen
 
             - name: Run tests
               run: npm test
