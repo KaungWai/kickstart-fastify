@@ -25,8 +25,6 @@ const authFactory = (permission: Permission): FastifyAuthFunction => {
             }
         } catch (error) {
             done(error)
-        } finally {
-            done()
         }
     }
     return authFunction
