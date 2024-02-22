@@ -1,4 +1,4 @@
-import { HttpError } from '@fastify/sensible/lib/httpError'
+import { HttpErrors } from '@fastify/sensible'
 import { compareSync } from 'bcrypt'
 import { RouteHandlerMethod } from 'fastify'
 import { StatusCodes } from 'http-status-codes'
@@ -7,7 +7,7 @@ import { JWTPayload } from './model/JWTPayload'
 import { LoginRequest } from './request'
 import { LoginResponse, LoginResult } from './response'
 
-export const loginHandler: RouteHandlerMethod = async function (request, reply): Promise<LoginResponse | HttpError> {
+export const loginHandler: RouteHandlerMethod = async function (request, reply): Promise<LoginResponse | HttpErrors['HttpError']> {
     const body = request.body as LoginRequest
     const errMessage = 'User id or password is invalid.'
 

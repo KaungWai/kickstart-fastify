@@ -29,7 +29,7 @@ declare module 'fastify' {
     }
 }
 
-export default fs(async function (server: FastifyInstance, options: FastifyPluginOptions, done: CallableFunction) {
+export default fs(function (server: FastifyInstance, options: FastifyPluginOptions, done: CallableFunction) {
     prisma.$on('query', (e) => {
         e.query = e.query.replaceAll('"', '')
         e.params = e.params.replaceAll('"', "'")

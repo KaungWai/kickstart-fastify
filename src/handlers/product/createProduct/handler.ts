@@ -1,6 +1,5 @@
 import { RouteHandlerMethod } from 'fastify'
 import { StatusCodes } from 'http-status-codes'
-import { nanoid } from 'nanoid'
 
 import { SYS_CONSTANTS } from '@/constants/systemConstants'
 
@@ -8,6 +7,7 @@ import { CreateProductRequest } from './request'
 import { CreateProductResponse, CreateProductResult } from './response'
 
 export const createProductHandler: RouteHandlerMethod = async function (request, reply): Promise<CreateProductResponse> {
+    const nanoid = (await import('nanoid')).nanoid
     const body = request.body as CreateProductRequest
 
     const productInserted = await this.prisma.product.create({

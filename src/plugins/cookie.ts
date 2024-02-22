@@ -9,7 +9,7 @@ const cookieOptions: FastifyCookieOptions = {
     parseOptions: {},
 }
 
-export default fs(async function (server: FastifyInstance, options: FastifyPluginOptions, done: CallableFunction) {
+export default fs(function (server: FastifyInstance, options: FastifyPluginOptions, done: CallableFunction) {
     server.register(cookie, cookieOptions)
     done()
 })

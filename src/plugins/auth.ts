@@ -23,6 +23,7 @@ const authFactory = (permission: Permission): FastifyAuthFunction => {
             if (incomingPayload.permission !== permission) {
                 throw this.httpErrors.forbidden('Not enough permission.')
             }
+            done()
         } catch (error) {
             done(error)
         }
@@ -33,7 +34,7 @@ const authFactory = (permission: Permission): FastifyAuthFunction => {
 const verifyRO: FastifyAuthFunction = authFactory(Permission.READ_ONLY)
 const verifyRW: FastifyAuthFunction = authFactory(Permission.READ_WRITE)
 
-export default fs(async function (server: FastifyInstance, options: FastifyPluginOptions, done: CallableFunction) {
+export default fs(function (server: FastifyInstance, options: FastifyPluginOptions, done: CallableFunction) {
     server.decorate('verifyRO', verifyRO)
     server.decorate('verifyRW', verifyRW)
     server.register(fastifyAuth, options)

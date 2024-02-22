@@ -12,7 +12,7 @@ import { SYS_CONSTANTS } from '@/constants/systemConstants'
 import env from '@/utils/env'
 import { getAppVersion } from '@/utils/misc'
 
-export default fs(async function (server: FastifyInstance, _options: FastifyPluginOptions, done: CallableFunction) {
+export default fs(function (server: FastifyInstance, _options: FastifyPluginOptions, done: CallableFunction) {
     const schemas = autoloadSchemas(path.join(__dirname, '../handlers/'))
 
     for (const key in schemas) {

@@ -1,11 +1,11 @@
-import { HttpError } from '@fastify/sensible/lib/httpError'
+import { HttpErrors } from '@fastify/sensible'
 import { RouteHandlerMethod } from 'fastify'
 import { StatusCodes } from 'http-status-codes'
 
 import { GetProductByIdParams } from './parameter'
 import { GetProductByIdResponse, GetProductByIdResult } from './response'
 
-export const getProductByIdHandler: RouteHandlerMethod = async function (request, reply): Promise<GetProductByIdResponse | HttpError> {
+export const getProductByIdHandler: RouteHandlerMethod = async function (request, reply): Promise<GetProductByIdResponse | HttpErrors['HttpError']> {
     const params = request.params as GetProductByIdParams
 
     const product = await this.prisma.product.findUnique({

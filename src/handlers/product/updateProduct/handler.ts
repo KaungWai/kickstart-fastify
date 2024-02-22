@@ -1,11 +1,11 @@
-import { HttpError } from '@fastify/sensible/lib/httpError'
+import { HttpErrors } from '@fastify/sensible'
 import { RouteHandlerMethod } from 'fastify'
 import { StatusCodes } from 'http-status-codes'
 
 import { UpdateProductRequest } from './request'
 import { UpdateProductResponse, UpdateProductResult } from './response'
 
-export const updateProductHandler: RouteHandlerMethod = async function (request, reply): Promise<UpdateProductResponse | HttpError> {
+export const updateProductHandler: RouteHandlerMethod = async function (request, reply): Promise<UpdateProductResponse | HttpErrors['HttpError']> {
     const body = request.body as UpdateProductRequest
 
     const product = await this.prisma.product.findUnique({
