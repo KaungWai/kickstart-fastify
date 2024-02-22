@@ -36,7 +36,7 @@ export const seedUser = async (prisma: PrismaClient) => {
 
         dataList.push({
             userId: users[i].id,
-            userName: faker.name.fullName(),
+            userName: faker.person.fullName(),
             salt: salt,
             hash: hash,
             permission: users[i].permission,
