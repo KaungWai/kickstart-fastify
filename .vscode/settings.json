@@ -2,7 +2,7 @@
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "explicit"
+        "source.fixAll.eslint": "always"
     },
     "[prisma]": {
         "editor.defaultFormatter": "Prisma.prisma"
