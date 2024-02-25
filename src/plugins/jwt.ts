@@ -6,8 +6,10 @@ import path from 'path'
 
 import { SYS_CONSTANTS } from '@/constants/systemConstants'
 import env from '@/utils/env'
+import { getRootPath } from '@/utils/misc'
 
-const secretPath = env.ENVIRONMENT === 'test' ? path.join(__dirname, '../../../keys/jwtsecret') : env.JWT_SECRET
+// secret key path
+const secretPath = env.ENVIRONMENT === 'development' || env.ENVIRONMENT === 'test' ? path.join(getRootPath(), './keys/jwtsecret') : env.JWT_SECRET
 
 // read key files
 const jwtSecret = readFileSync(secretPath, { encoding: SYS_CONSTANTS.DEFAULT_ENCODING })
