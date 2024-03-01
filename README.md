@@ -1,4 +1,6 @@
 # Kickstart Fastify
+[![CodeQL](https://github.com/KaungWai/kickstart-fastify/actions/workflows/codeql.yml/badge.svg)](https://github.com/KaungWai/kickstart-fastify/actions/workflows/codeql.yml)
+[![Run Tests](https://github.com/KaungWai/kickstart-fastify/actions/workflows/test.yml/badge.svg)](https://github.com/KaungWai/kickstart-fastify/actions/workflows/test.yml)
 
 Fastify ကိုအသုံးပြုပြီး REST API အသစ်တစ်ခု‌စရေးဖို့ ရှိနေတယ်ဆိုရင် ဒီ repo က အသုံးဝင်မယ်လိုမျှော်လင့်ရပါတယ်။ ဒီ repo ထဲမှာ fasitfy service တစ်ခုရေးသားဖို့ အခြေခံကျတဲ့လိုအပ်ချက်တွေကို ကြိုတင်ထည့်သွင်းပြီးတည်ဆောက်ပေးထားပါတယ်။
 
